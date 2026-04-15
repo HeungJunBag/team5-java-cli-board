@@ -35,6 +35,7 @@ class ArticleRepositoryTest {
     @Test
     @DisplayName("findAll은 저장된 모든 게시글을 반환한다")
     void findAll() {
+        repository.save("제목1", "내용1");
         repository.save("제목2", "내용2");
 
         assertThat(repository.findAll()).hasSize(2);
