@@ -54,4 +54,13 @@ class AppIntegrationTest {
         String output = runApp("write\n삭제할 글\n내용\ndelete 1\nlist\nexit\n");
                 assertThat(output).doesNotContain("삭제할 글");
     }
+
+    @Test
+    void help_입력시_명령어_목록이_출력된다() {
+        String output = runApp("help\nexit\n");
+        assertThat(output).contains("write");
+        assertThat(output).contains("list");
+        assertThat(output).contains("detail");
+        assertThat(output).contains("delete");
+    }
 }
